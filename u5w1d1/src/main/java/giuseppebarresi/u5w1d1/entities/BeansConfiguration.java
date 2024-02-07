@@ -1,8 +1,10 @@
 package giuseppebarresi.u5w1d1.entities;
 
 
+import giuseppebarresi.u5w1d1.StatoTavolo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import java.util.Arrays;
 
@@ -39,4 +41,13 @@ public class BeansConfiguration {
         return new Topping("Ananas",3);
     }
 
+    @Bean
+    @Primary
+    Tavolo getTavoloN1(){ return new Tavolo(4,1, StatoTavolo.Libero);}
+
+    @Bean
+    Tavolo getTavoloN2(){ return new Tavolo(4,2, StatoTavolo.Libero);}
+
+    @Bean
+    Tavolo getTavoloN3(){ return new Tavolo(10,3, StatoTavolo.Libero);}
 }

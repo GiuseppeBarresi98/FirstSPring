@@ -2,6 +2,7 @@ package giuseppebarresi.u5w1d1.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
+@ToString
 public class Pizze extends Menu{
     List<Topping> toppings;
 

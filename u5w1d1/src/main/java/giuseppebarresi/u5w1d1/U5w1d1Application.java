@@ -1,13 +1,13 @@
 package giuseppebarresi.u5w1d1;
 
-import giuseppebarresi.u5w1d1.entities.Bevanda;
-import giuseppebarresi.u5w1d1.entities.Pizze;
-import giuseppebarresi.u5w1d1.entities.Topping;
+import giuseppebarresi.u5w1d1.entities.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -53,9 +53,12 @@ public class U5w1d1Application {
 			System.out.println("-"+ bevande.getName() + " " +  bevande.getPrice() + " £") ;
 		}
 
+		Ordine ordine1 = new Ordine((Tavolo) ctx.getBean("getTavoloN1"), Arrays.asList((Pizze)ctx.getBean("getMargherita"),(Bevanda)ctx.getBean("getCocaCola")),Stato.In_corso, 2,LocalDate.now(),2.0);
+
+		System.out.println(ordine1);
+		ordine1.getElementiOrdinatiList().forEach(elemento -> System.out.println("Nome dell'elemento: " + elemento.getName()));
+
+		System.out.println("Il prezzo del conto è : " + (ordine1.getPrezzoFinale(ordine1) + (ordine1.getPrezzoCoperto()* ordine1.getNumero_coperti())));
 
 	}
-
-
-
 }

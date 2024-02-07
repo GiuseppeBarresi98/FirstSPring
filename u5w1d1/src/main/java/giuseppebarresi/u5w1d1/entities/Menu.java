@@ -8,10 +8,12 @@ import lombok.Setter;
 @Setter
 public  abstract class Menu {
     private String name;
+    @Getter
     private double price;
 
     public Menu(String name,double price) {
         this.name = name;
         this.price = price;
     }
+
 }
